@@ -42,6 +42,8 @@ return [
             'journal_mode' => null,
             'synchronous' => null,
             'transaction_mode' => 'DEFERRED',
+            'vec_enabled' => env('SQLITE_VEC_AUTOLOAD', false),
+            'vec_extension' => env('SQLITE_VEC_PATH', '/usr/local/lib/sqlite3/vec0.so'),
         ],
 
         'mysql' => [
