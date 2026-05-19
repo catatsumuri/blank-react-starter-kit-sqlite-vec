@@ -12,9 +12,9 @@ use Symfony\Component\Console\Attribute\AsCommand;
 class ChunkDocumentsCommand extends Command
 {
     protected $signature = 'documents:chunk
-        {--limit= : 先頭から何件処理するか}';
+        {--limit= : Number of records to process from the beginning}';
 
-    protected $description = 'documents をチャンク分割して document_chunks に保存する';
+    protected $description = 'Split documents into chunks and save them to document_chunks';
 
     public function handle(DocumentChunker $chunker): int
     {
@@ -29,7 +29,7 @@ class ChunkDocumentsCommand extends Command
             ->get();
 
         if ($documents->isEmpty()) {
-            $this->warn('対象ドキュメントがありません。');
+            $this->warn('No documents found to process.');
 
             return self::SUCCESS;
         }
